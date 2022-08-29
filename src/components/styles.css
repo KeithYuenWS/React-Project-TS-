@@ -1,0 +1,12 @@
+.input {
+    display: flex;
+    width: 90%;
+    position: relative;
+    align-items: center;
+}
+
+.drag-handler {
+    background-color: grey;
+    height: 50px;
+    cursor: move;
+  }
