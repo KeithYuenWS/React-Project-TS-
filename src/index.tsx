@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter as BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './index.css';
+
+import Layout from './Layout';
+import Home from './Home';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 import store from "./store";
@@ -13,7 +19,17 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {/* // have problem to see the index html once build */}
+      {/* // sue HashRouter as can fix */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="App" element={<App />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <App /> */}
     </Provider>
   </React.StrictMode>
 );
